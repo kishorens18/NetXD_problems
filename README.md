@@ -4,7 +4,7 @@ This is about how to work git
 # git learning
 git clone <repository>
 
-# 1. List of git commmands
+# 1. List of git commands
 
 git add --all
 
