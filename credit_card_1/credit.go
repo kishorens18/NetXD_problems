@@ -38,21 +38,22 @@ func isValid(a string) (string, error) {
 		case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
 			flag = 1
 		default:
-			return "", errors.New("Invalid input")
+			return "", errors.New("Error : Invalid input")
 		}
 	}
 	if flag == 1 {
 		if a[0] == '4' || a[0] == '5' || a[0] == '6' || a[0] == '3' {
 			var odd = []int{}
 			var even = []int{}
-			for i := range a {
-				if i%2 == 0 {
+
+			    for i:=len(a)-1;i>=0;i--{
+			        if i%2 != 0 {
 					odd = append(odd, int(a[i]-'0'))
 				} else {
 					even = append(even, int(a[i]-'0'))
 				}
-			}
-
+			    }
+			
 			odd_result := oddOne(odd)
 			even_result := evenOne(even)
 
@@ -60,11 +61,11 @@ func isValid(a string) (string, error) {
 			if result2%10 == 0 {
 				return "Valid", nil
 			} else {
-				err := errors.New("error acquired")
+				err := errors.New("Error : Invalid input")
 				return "", err
 			}
 		} else {
-			err := errors.New("error acquired")
+			err := errors.New("Error : Invalid input")
 			return "", err
 		}
 	}
@@ -79,7 +80,7 @@ func main() {
 	var err error
 
 	if len(a) < 13 || len(a) > 16 {
-		fmt.Println("Invalid")
+		fmt.Println("Error : Invalid input")
 	} else {
 		result, err = isValid(a)
 	}
